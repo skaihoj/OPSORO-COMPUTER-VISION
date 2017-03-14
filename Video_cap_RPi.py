@@ -12,7 +12,7 @@ clf = joblib.load("digits_cls.pkl")
 # indexes ranging from 1 to 3
 cap = PiCamera()
 cap.resolution = (640, 480)
-camera.framerate = 32
+cap.framerate = 32
 im = PiRGBArray(camera, size=(640, 480))
 
 while(True):

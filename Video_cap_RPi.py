@@ -70,7 +70,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
      # Calculate the HOG features
      roi_hog_fd = hog(roi, orientations=9, pixels_per_cell=(14, 14), cells_per_block=(1, 1), visualise=False)
      nbr = clf.predict(np.array([roi_hog_fd], 'float64'))
-     cv2.putText(frame, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
+     cv2.putText(image, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
 
 
 

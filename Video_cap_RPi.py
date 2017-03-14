@@ -18,7 +18,7 @@ im = PiRGBArray(cap, size=(640, 480))
 
 for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
 
-    image = frame.array()
+    image = frame.array
     
     # Convert to grayscale and apply Gaussian filtering
     im_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 from sklearn.externals import joblib
+from picamera.array import PiRGBArray
 from picamera import PiCamera
 from skimage.feature import hog
 

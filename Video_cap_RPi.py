@@ -72,13 +72,9 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
      nbr = clf.predict(np.array([roi_hog_fd], 'float64'))
      cv2.putText(image, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
 
+     cap.capture('/home/test.jpg')
 
-
-    # Display the resulting frame
-    cv2.imshow('frame', image)
-    cv2.imshow('Threshold', im_th)
-
-    im.truncate(0)
+     im.truncate(0)
 
     # Press 'q' to exit the video stream
     if cv2.waitKey(1) & 0xFF == ord('q'):

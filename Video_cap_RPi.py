@@ -14,7 +14,7 @@ clf = joblib.load("digits_cls.pkl")
 cap = PiCamera()
 cap.resolution = (640, 480)
 cap.framerate = 32
-im = PiRGBArray(camera, size=(640, 480))
+im = PiRGBArray(cap, size=(640, 480))
 
 for frame in cap.capture_continous(im, format="bgr", use_video_port=True):
 

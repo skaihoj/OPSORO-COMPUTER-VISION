@@ -44,7 +44,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
 
     # Draw contours in the original image 'im' with contours0 as input
 
-    cv2.drawContours(image, contours0, -1, (0,0,255), 2, cv2.LINE_AA, hierarchy, abs(-1))
+    cv2.drawContours(im_th, contours0, -1, (0,0,255), 2, cv2.LINE_AA, hierarchy, abs(-1))
     
 
     # Rectangular bounding box around each number/contour
@@ -72,7 +72,7 @@ for frame in cap.capture_continuous(im, format="bgr", use_video_port=True):
      nbr = clf.predict(np.array([roi_hog_fd], 'float64'))
      cv2.putText(image, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
 
-     cv2.imwrite("./testProc.JPEG", image)
+     cv2.imwrite("./testProc.JPEG", im_th)
 
      im.truncate(0)
 

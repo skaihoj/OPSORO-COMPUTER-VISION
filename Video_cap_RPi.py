@@ -15,14 +15,12 @@ cap.resolution = (640, 480)
 cap.framerate = 32
 im = PiRGBArray(camera, size=(640, 480))
 
-while(True):
+for frame in cap.capture_continous(im, format="bgr", use_video_port=True)
 
+    image = frame.array()
     
-    # Capture frame-by-frame
-    ret, frame = cap.capture_continous(im, format="bgr", use_video_port=True)
-
     # Convert to grayscale and apply Gaussian filtering
-    im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+    im_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     im_gray = cv2.GaussianBlur(im_gray, (11, 11), 0)
     
@@ -79,7 +77,7 @@ while(True):
     cv2.imshow('frame', frame)
     cv2.imshow('Threshold', im_th)
 
-
+    im.truncate(0)
 
     # Press 'q' to exit the video stream
     if cv2.waitKey(1) & 0xFF == ord('q'):
